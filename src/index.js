@@ -11,11 +11,11 @@ class TextName extends React.Component{
 	}
 	render(){
 		return(
-		<input type="text" onChange={this.onChange} value={this.value}></input>
+		<input type="text" ref="NameInput" onChange={evt => this.onChange(evt)} value={this.value}></input>
 		);	
 	}
-	onChange(){
-		this.setState({name : this.value});
+	onChange(evt){
+		this.setState({name : evt.target.value});
 	}
 }
 
@@ -64,7 +64,7 @@ class Formulario extends React.Component{
 		}
 	}
 	handleClick(){
-		this.setState({name : this.state.name});
+		this.setState({name : React.findDOMNode(this.refs.theInput).value});
 		
 	}
 
